@@ -48,7 +48,7 @@ def FindFilenamesFromID(files_array: array):
         try:
             file = FindFileByID(file_id)
             files_array[i] = (file_id, file['name'])
-        except KeyError as err:
+        except TypeError as err:
             files_array[i] = (file_id, "")
             print(traceback.print_exception(err))
     return files_array
