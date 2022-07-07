@@ -47,7 +47,13 @@ def FindFilenamesFromID(files_array: array):
     for i, file_id in enumerate(files_array):
         try:
             file = FindFileByID(file_id)
-            files_array[i] = (file_id, file['name'])
+            if (file):
+                files_array[i] = {
+                    'id': file_id, 
+                    'name': file['name'], 
+                    'url': file['url'], 
+                    'owner': file['owner']
+                }
         except TypeError as err:
             files_array[i] = (file_id, "")
             print(traceback.print_exception(err))

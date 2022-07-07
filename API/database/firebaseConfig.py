@@ -1,7 +1,9 @@
 from dotenv import load_dotenv
 import os
-import pyrebase
-
+import firebase_admin
+import firebase_admin.storage as storage
+from firebase_admin import auth
+from httplib2 import Credentials
 
 load_dotenv()
 
@@ -13,20 +15,23 @@ config = {
   "serviceAccount": os.environ.get("serviceAccount")
 }
 
+_USER_ID = os.environ.get("USER_ID")
 username = os.environ.get("gmail_username")
 password = os.environ.get("gmail_password")
+_CREDENTIAL = os.environ.get("serviceAccount")
 
 def IntializeFirebaseApp():
-  firebase = pyrebase.initialize_app(config)
+  _credential = firebase_admin.credentials.Certificate(_CREDENTIAL)
+  firebase = firebase_admin.initialize_app(credential = _credential, name = config['storageBucket'])
   return firebase
 
-def IntializeFirebaseAuth():
-  auth = IntializeFirebaseApp().auth()
-  return auth
-
 def IntializeFirebaseStorage():
-  firebaseBucket = IntializeFirebaseApp().storage()
+  app = IntializeFirebaseApp()
+  firebaseBucket = storage.bucket(name = config["storageBucket"], app = app)
+  assert(firebaseBucket); "The firebase bucket cannot be a null object"
   return firebaseBucket
-
+  
+'''
 def CreateAuthUser():
-  return IntializeFirebaseAuth().sign_in_with_email_and_password(username, password)
+  return auth.get_user(_USER_ID)
+'''

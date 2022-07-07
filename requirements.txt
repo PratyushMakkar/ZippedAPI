@@ -1,0 +1,67 @@
+anyio==3.6.1
+asgiref==3.5.2
+boto3==1.24.2
+botocore==1.27.2
+CacheControl==0.12.11
+cachetools==5.2.0
+certifi==2022.5.18.1
+charset-normalizer==2.0.12
+click==8.1.3
+dnspython==2.2.1
+fastapi==0.78.0
+firebase==3.0.1
+firebase-admin==5.2.0
+gcloud==0.17.0
+google-api-core==2.8.1
+google-api-python-client==2.49.0
+google-auth==2.6.6
+google-auth-httplib2==0.1.0
+google-cloud-core==2.3.0
+google-cloud-firestore==2.5.2
+google-cloud-storage==2.3.0
+google-crc32c==1.3.0
+google-resumable-media==2.3.3
+googleapis-common-protos==1.56.2
+grpcio==1.46.3
+grpcio-status==1.46.3
+h11==0.13.0
+httplib2==0.20.4
+httptools==0.4.0
+idna==3.3
+jmespath==1.0.0
+jws==0.1.3
+msgpack==1.0.4
+
+oauth2client==3.0.0
+pip==22.0.4
+proto-plus==1.20.5
+protobuf==3.20.1
+pyasn1==                   0.4.8
+pyasn1-modules==          0.2.8
+#pycryptodome ==             3.15.0
+pyrebase #== 3.0.18
+pydantic==                  1.9.1
+pymongo ==                  4.1.1
+PyJWT
+pyparsing ==                3.0.9
+gunicorn
+python-dateutil ==          2.8.2
+python-dotenv ==            0.20.0
+python-jwt ==               2.0.1
+python-multipart ==         0.0.5
+PyYAML    ==                6.0
+requests  == 2.27.1
+requests-toolbelt==         0.7.0
+rsa      ==                 4.8
+s3transfer ==               0.6.0
+setuptools ==               58.1.0
+six     ==                  1.16.0
+sniffio  ==                 1.2.0
+starlette  ==               0.19.1
+typing_extensions ==        4.2.0
+uritemplate ==              4.1.1
+urllib3    ==               1.26.9
+uvicorn ==                  0.17.6
+uvloop ==                   0.16.0
+watchgod==                  0.8.2
+websockets  ==              10.3

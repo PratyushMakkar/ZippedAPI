@@ -26,7 +26,7 @@ class UserControllerTests(unittest.TestCase):
                 'password': user.getPassword()
             }
         )
-
+        print(response)
         assert(response.status_code == 200)
         assert(VerifyUser(user))
 

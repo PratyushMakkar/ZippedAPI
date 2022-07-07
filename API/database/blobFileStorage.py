@@ -1,13 +1,12 @@
-import re
+from firebase_admin.storage import bucket
 from fastapi import UploadFile
 from API.database.firebaseConfig import IntializeFirebaseStorage
 from API.models.file import File
-from API.database.firebaseConfig import IntializeFirebaseAuth, CreateAuthUser
+#from API.database.firebaseConfig import CreateAuthUser
 
 
-storage = IntializeFirebaseStorage()
-bucket = storage.bucket
-user = CreateAuthUser()
+bucket = IntializeFirebaseStorage()
+#user = CreateAuthUser()
 
 def UploadFileToStorage(file_data: File, file):
 
@@ -15,9 +14,10 @@ def UploadFileToStorage(file_data: File, file):
     owner = file_data.getFileOwner().getUser()
 
     file_path = "{0}/{1}".format(owner, filename)
+    blob = bucket.blob(file_path)
+    response_object = blob.upload_from_file(file); blob.make_public()
 
-    response_object = storage.child(file_path).put(file, user['idToken'])
-    download_url = storage.child(file_path).get_url(response_object['downloadTokens'])
+    download_url = blob.public_url
     return (response_object, download_url)
     
 def DeleteFileFromStorage():
